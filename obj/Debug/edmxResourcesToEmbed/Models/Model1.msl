@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="devtestdbModelStoreContainer" CdmEntityContainer="devtestdbEntities">
+    <EntitySetMapping Name="COUNTRies">
+      <EntityTypeMapping TypeName="devtestdbModel.COUNTRY">
+        <MappingFragment StoreEntitySet="COUNTRY">
+          <ScalarProperty Name="CTRY_ID" ColumnName="CTRY_ID" />
+          <ScalarProperty Name="CTRY_SORTNAME" ColumnName="CTRY_SORTNAME" />
+          <ScalarProperty Name="CRTY_NAME" ColumnName="CRTY_NAME" />
+          <ScalarProperty Name="CTRY_PHONECODE" ColumnName="CTRY_PHONECODE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREA_BY" ColumnName="CREA_BY" />
+          <ScalarProperty Name="CREA_DATE" ColumnName="CREA_DATE" />
+          <ScalarProperty Name="UPDA_BY" ColumnName="UPDA_BY" />
+          <ScalarProperty Name="UPDA_DATE" ColumnName="UPDA_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="INSERT_EMAILS" FunctionName="devtestdbModel.Store.INSERT_EMAILS" />
+    <FunctionImportMapping FunctionImportName="RETRIEVE_EMAILS" FunctionName="devtestdbModel.Store.RETRIEVE_EMAILS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="devtestdbModel.RETRIEVE_EMAILS_Result">
+          <ScalarProperty Name="HOST_EMAIL_ID" ColumnName="HOST_EMAIL_ID" />
+          <ScalarProperty Name="HOST_PWD" ColumnName="HOST_PWD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="SEND_EMAIL_BULK">
+      <EntityTypeMapping TypeName="devtestdbModel.SEND_EMAIL_BULK">
+        <MappingFragment StoreEntitySet="SEND_EMAIL_BULK">
+          <ScalarProperty Name="CREA_DATE" ColumnName="CREA_DATE" />
+          <ScalarProperty Name="SEB_STATUS" ColumnName="SEB_STATUS" />
+          <ScalarProperty Name="SENT_DATE" ColumnName="SENT_DATE" />
+          <ScalarProperty Name="SENT_STATUS" ColumnName="SENT_STATUS" />
+          <ScalarProperty Name="SENT_COUNT" ColumnName="SENT_COUNT" />
+          <ScalarProperty Name="HOST_PWD" ColumnName="HOST_PWD" />
+          <ScalarProperty Name="HOST_EMAIL_ID" ColumnName="HOST_EMAIL_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DELETE_EMAILS" FunctionName="devtestdbModel.Store.DELETE_EMAILS" />
+    <FunctionImportMapping FunctionImportName="UPDATE_EMAILS" FunctionName="devtestdbModel.Store.UPDATE_EMAILS" />
+  </EntityContainerMapping>
+</Mapping>

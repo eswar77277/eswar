@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="devtestdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="COUNTRY">
+    <Key>
+      <PropertyRef Name="CTRY_ID" />
+    </Key>
+    <Property Name="CTRY_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CTRY_SORTNAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CRTY_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CTRY_PHONECODE" Type="Int64" />
+    <Property Name="STATUS" Type="Int32" />
+    <Property Name="CREA_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREA_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDA_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPDA_DATE" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="devtestdbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="COUNTRies" EntityType="Self.COUNTRY" />
+    <FunctionImport Name="INSERT_EMAILS">
+      <Parameter Name="HOST_EMAIL_ID" Mode="In" Type="String" />
+      <Parameter Name="HOST_PWD" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RETRIEVE_EMAILS" ReturnType="Collection(devtestdbModel.RETRIEVE_EMAILS_Result)" />
+    <EntitySet Name="SEND_EMAIL_BULK" EntityType="devtestdbModel.SEND_EMAIL_BULK" />
+    <FunctionImport Name="DELETE_EMAILS">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UPDATE_EMAILS">
+      <Parameter Name="HOST_EMAIL_ID" Mode="In" Type="String" />
+      <Parameter Name="HOST_PWD" Mode="In" Type="String" />
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="RETRIEVE_EMAILS_Result">
+    <Property Type="String" Name="HOST_EMAIL_ID" Nullable="true" />
+    <Property Type="String" Name="HOST_PWD" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="SEND_EMAIL_BULK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HOST_EMAIL_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HOST_PWD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SENT_COUNT" Type="Int32" />
+    <Property Name="SENT_STATUS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SENT_DATE" Type="DateTime" Precision="0" />
+    <Property Name="SEB_STATUS" Type="Int32" />
+    <Property Name="CREA_DATE" Type="DateTime" Precision="0" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="devtestdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="COUNTRY">
+    <Key>
+      <PropertyRef Name="CTRY_ID" />
+    </Key>
+    <Property Name="CTRY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CTRY_SORTNAME" Type="nvarchar(max)" />
+    <Property Name="CRTY_NAME" Type="nvarchar(max)" />
+    <Property Name="CTRY_PHONECODE" Type="bigint" />
+    <Property Name="STATUS" Type="int" />
+    <Property Name="CREA_BY" Type="nvarchar(max)" />
+    <Property Name="CREA_DATE" Type="datetime" />
+    <Property Name="UPDA_BY" Type="nvarchar(max)" />
+    <Property Name="UPDA_DATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SEND_EMAIL_BULK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HOST_EMAIL_ID" Type="nvarchar(max)" />
+    <Property Name="HOST_PWD" Type="nvarchar(max)" />
+    <Property Name="SENT_COUNT" Type="int" />
+    <Property Name="SENT_STATUS" Type="nvarchar(max)" />
+    <Property Name="SENT_DATE" Type="date" />
+    <Property Name="SEB_STATUS" Type="int" />
+    <Property Name="CREA_DATE" Type="date" />
+  </EntityType>
+  <Function Name="DELETE_EMAILS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="INSERT_EMAILS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HOST_EMAIL_ID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="HOST_PWD" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="RETRIEVE_EMAILS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="UPDATE_EMAILS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HOST_EMAIL_ID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="HOST_PWD" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="devtestdbModelStoreContainer">
+    <EntitySet Name="COUNTRY" EntityType="Self.COUNTRY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEND_EMAIL_BULK" EntityType="Self.SEND_EMAIL_BULK" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
